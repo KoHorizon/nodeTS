@@ -26,7 +26,6 @@ app.use(jwtexpress({ secret: 'ThisIsMySecretSentenceBlaBlaBla', algorithms: ['HS
   path: [
       '/auth',
       { url: "/users", methods: ['POST'] }
-
   ]
 }));
 
@@ -47,13 +46,16 @@ createConnection({
   logging: false
 })
 
-app.get('/', async (req, res) => {
-// ingnore this route 
-  let result = await User.find({relations:[ "message" ], where: {firstname: "John"}})
 
+
+app.get('/', async (req, res) => {
+// Test route
+  let result = await User.find({relations:[ "message" ], where: {firstname: "John"}})
   console.log(result);
-  
 });
+
+
+// Routes
 
 app.use(routerAuth);
 app.use(routerMessage);

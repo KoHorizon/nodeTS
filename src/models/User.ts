@@ -15,7 +15,7 @@ export class User extends BaseEntity {
     @Column()
     password:string;
 
-    @OneToMany(type => Message, message => message.user) // note: we will create author property in the Photo class below
+    @OneToMany(type => Message, message => message.user) 
     message: Message[];
 
 
